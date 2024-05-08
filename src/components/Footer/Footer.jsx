@@ -5,54 +5,117 @@ import { Logo } from "../index";
 import github from "../../images/github.png";
 
 function Footer() {
+  const currentYear = new Date().getFullYear();
+
   return (
-    <footer className="px-4 py-10 border-t border-gray-200/10">
+    <footer className="px-4 py-6 border-t border-gray-200/10 bg-gray-900">
       <Container>
-        <div className="flex flex-col md:flex-row md:items-center">
-          <span className="w-[125px]">
-            <Logo />
-          </span>
-          <div className="mt-4 grow md:ml-12 md:mt-0">
-            <p className="text-base font-semibold text-white">
-              © 2024 BlogVista
-            </p>
+        <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between">
+          <div className="flex items-center mb-4 lg:mb-0">
+            <span className="w-[125px]">
+              <Logo />
+            </span>
+            <div className="mt-4 lg:mt-0 lg:ml-6">
+              <p className="text-base font-semibold text-white">
+                © {currentYear} BlogVista
+              </p>
+            </div>
           </div>
-        </div>
-        <div className="mt-16 grid grid-cols-2 ">
-          <div className="mb-8 lg:mb-0">
-            <p className="mb-6 text-lg font-semibold text-white">Legal</p>
-            <ul className="flex flex-col space-y-4 text-[14px] font-medium text-white">
-              <li>Privacy Policy</li>
-              <li>Terms of Service</li>
-              <li>Cookie Policy</li>
-              <li>Disclaimer</li>
-              <li>Media Policy</li>
-            </ul>
-          </div>
-          <div className="mb-8 lg:mb-0">
-            <p className="mb-6 text-lg font-semibold text-white">
-              Social Links
-            </p>
-            <ul className="flex flex-col space-y-4 text-[14px] font-medium text-white">
-              <li>Facebook</li>
-              <li>Twitter</li>
-              <li>Instagram</li>
-              <li>Linkedin</li>
-              <li>YouTube</li>
-            </ul>
+          <div className="mt-4 lg:mt-0">
+            <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-6">
+              <div>
+                <p className="mb-4 text-lg font-semibold text-white">Legal</p>
+                <ul className="flex flex-col space-y-2 text-[14px] font-medium text-white">
+                  <li>
+                    <Link to="/" className="hover:text-gray-400">
+                      Privacy Policy
+                    </Link>
+                  </li>
+                  <li>
+                    <Link to="/" className="hover:text-gray-400">
+                      Terms of Service
+                    </Link>
+                  </li>
+                  <li>
+                    <Link to="/" className="hover:text-gray-400">
+                      Cookie Policy
+                    </Link>
+                  </li>
+                  <li>
+                    <Link to="/" className="hover:text-gray-400">
+                      Disclaimer
+                    </Link>
+                  </li>
+                  <li>
+                    <Link to="/" className="hover:text-gray-400">
+                      Media Policy
+                    </Link>
+                  </li>
+                </ul>
+              </div>
+              <div>
+                <p className="mb-4 text-lg font-semibold text-white">
+                  Social Links
+                </p>
+                <ul className="flex flex-col space-y-2 text-[14px] font-medium text-white">
+                  <li>
+                    <Link to="/" className="hover:text-gray-400">
+                      Facebook
+                    </Link>
+                  </li>
+                  <li>
+                    <Link to="/" className="hover:text-gray-400">
+                      Twitter
+                    </Link>
+                  </li>
+                  <li>
+                    <Link to="/" className="hover:text-gray-400">
+                      Instagram
+                    </Link>
+                  </li>
+                  <li>
+                    <Link to="/" className="hover:text-gray-400">
+                      Linkedin
+                    </Link>
+                  </li>
+                  <li>
+                    <Link to="/" className="hover:text-gray-400">
+                      YouTube
+                    </Link>
+                  </li>
+                </ul>
+              </div>
+              <div>
+                <p className="mb-4 text-lg font-semibold text-white">
+                  Additional Links
+                </p>
+                <ul className="flex flex-col space-y-2 text-[14px] font-medium text-white">
+                  <li>
+                    <Link to="/" className="hover:text-gray-400">
+                      About Us
+                    </Link>
+                  </li>
+                  <li>
+                    <Link to="/" className="hover:text-gray-400">
+                      Contact Us
+                    </Link>
+                  </li>
+                </ul>
+              </div>
+            </div>
           </div>
         </div>
       </Container>
-      <div className="flex justify-center sm:justify-end px-8">
-        <Link to={"https://github.com/VaibhavKT20"}>
-          <button
-            type="button"
-            className="rounded-md flex gap-2 mt-8  bg-white hover:bg-white/80  px-3 py-2 text-sm font-semibold text-black "
-          >
-            <img src={github} alt="github" />
-            Created By Vaibhav
-          </button>
-        </Link>
+      <div className="flex justify-center sm:justify-end mt-6 px-4">
+        <a
+          href="https://github.com/VaibhavKT20"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="rounded-md flex items-center gap-2 bg-white text-black px-3 py-2 text-sm font-semibold hover:bg-white/80"
+        >
+          <img src={github} alt="github" className="w-6 h-6" />
+          Created By Vaibhav
+        </a>
       </div>
     </footer>
   );

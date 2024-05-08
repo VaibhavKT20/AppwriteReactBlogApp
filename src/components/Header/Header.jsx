@@ -1,29 +1,29 @@
-import React, { useState } from 'react'
-import { Container, Logo, LogoutBtn } from '../index'
-import { Link } from 'react-router-dom'
-import { useSelector } from 'react-redux'
-import { useNavigate } from 'react-router-dom'
+import React, { useState } from "react";
+import { Container, Logo, LogoutBtn } from "../index";
+import { Link } from "react-router-dom";
+import { useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
 import close from "../../images/close.png";
 import menu from "../../images/nav.png";
 
-
 function Header() {
-  const authStatus = useSelector((state) => state.auth.status)
-  const navigate = useNavigate()
-  const [navOpen, setnavOpen] = useState(false);
+  const authStatus = useSelector((state) => state.auth.status);
+  const navigate = useNavigate();
+  const [navOpen, setNavOpen] = useState(false);
 
   const toggleNavBar = () => {
-    setnavOpen(!navOpen);
+    setNavOpen(!navOpen);
   };
 
   const closeNavBar = () => {
-    setnavOpen(false);
+    setNavOpen(false);
   };
+
   const navItems = [
     {
-      name: 'Home',
+      name: "Home",
       slug: "/",
-      active: true
+      active: true,
     },
     {
       name: "Login",
@@ -45,12 +45,12 @@ function Header() {
       slug: "/add-post",
       active: authStatus,
     },
-  ]
+  ];
 
   return (
-    <header className="py-4 shadow-sm shadow-gray-200/10 sticky top-0 z-50 bg-black ">
+    <header className="py-4 shadow-md sticky top-0 z-50 bg-gradient-to-r from-blue-500 to-purple-600">
       <Container>
-        <nav className="flex justify-between flex-wrap  items-center">
+        <nav className="flex justify-between items-center">
           <div>
             <Link to="/" onClick={closeNavBar}>
               <Logo />
@@ -58,10 +58,18 @@ function Header() {
           </div>
           <div className="md:hidden mr-4">
             <button onClick={toggleNavBar}>
-              {navOpen ? (<img src={close} alt="close" />) : (<img src={menu} alt="menu" />)}
+              {navOpen ? (
+                <img src={close} alt="close" />
+              ) : (
+                <img src={menu} alt="menu" />
+              )}
             </button>
           </div>
-          <ul className={` ml-auto  md:flex md:w-auto md:items-center md:flex-row   ${navOpen ? "w-full flex flex-col items-center" : "hidden"}`}>
+          <ul
+            className={`ml-auto md:flex md:items-center ${
+              navOpen ? "flex flex-col items-center" : "hidden"
+            }`}
+          >
             {navItems.map((item) =>
               item.active ? (
                 <li key={item.name}>
@@ -69,7 +77,7 @@ function Header() {
                     onClick={() => {
                       navigate(item.slug);
                     }}
-                    className="inline-block font-bold text-white px-6 py-2 duration-200 hover:bg-header-hover-color hover:text-[#DCDF00] rounded-full text-xl"
+                    className="inline-block font-semibold text-white px-4 py-2 mx-2 rounded-full text-lg bg-transparent hover:bg-white hover:text-purple-600 hover:border-purple-600 border border-transparent duration-200"
                   >
                     {item.name}
                   </button>
@@ -88,4 +96,4 @@ function Header() {
   );
 }
 
-export default Header
+export default Header;
