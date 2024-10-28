@@ -30,6 +30,6 @@ function App() {
       <Footer />
     </div>
   ) : null
-}
+} 
 
 export default App
